@@ -1,0 +1,39 @@
+Unidad 1.1: Administración y control de proyectos. Gestión de proyectos. Recursos requeridos en un proyecto de software: su administración específica a lo largo del ciclo de vida del proyecto. 
+
+Unidad 1.2:Conformación y liderazgo de equipos de desarrollo de software. Las recomendaciones del Project Management Institute. El PMBOK. Gestion del Alcance
+
+Unidad 2.1: La Descomposición de la Estructura de Trabajo (WBS). Métricas para la productividad y la calidad del software. 
+
+Unidad 2.2: Medición del software: Métricas orientadas al tamaño, Métricas orientadas a la función. Métricas para la calidad del software. 
+
+Unidad 2.3:Estimación del proyecto de software. Diferentes modelos de estimación. COCOMO2. Estimación de esfuerzo y costo. 
+
+Unidad 3.1: Gestión de proyectos informáticos: Negociación y Dirección; Planificación y Control. Definición de tareas y paralelismo. 
+
+Unidad 3.2: Herramientas de planificación, herramientas de gestión de proyectos, los Grafos Gantt y PERT
+
+Unidad 3.3:Las “Curvas S”. Utilización de herramientas de Programación / Presupuestación. 
+
+Unidad 4.1: Gestión de los Riesgos del Proyecto, los procesos involucrados en la identificación, análisis y control de los riesgos para el proyecto
+
+Unidad 4.2: : Planificación de la Gestión de Riesgos. Detectar los Riesgos. 
+
+Unidad 4.3: Análisis Cualitativo de Riesgos. Análisis Cuantitativo de Riesgos. 
+
+Unidad 4.4: Planificación de la Respuesta a los Riesgos. Seguimiento y Controlar los Riesgos 
+
+Unidad 5.1: Actividades de manejo de calidad. Procesos para asegurar la calidad. Calidad del software: del producto y del proceso. Certificación de calidad. Plan de calidad. Aseguramiento de Calidad. Control de Calidad. 
+
+Unidad 5.2: ISO
+
+Unidad 5.3: CMM y CMMI
+
+Unidad 6.1: Gestión de Recursos Humanos. Aspectos generales
+
+Unidad 6.2: Desarrollo del Plan de Recursos Humanos. Adquirir el Equipo del Proyecto. 
+
+Unidad 6.3: Desarrollar el Equipo del Proyecto. Gestionar el Equipo del Proyecto. 
+
+Unidad 6.4: Cierre del proyecto. Evaluación de resultados. Aspectos legales y financieros. 
+
+Unidad 7: Nociones de auditoría y peritaje. Tipos de auditoria. Normas de seguridad y respaldo. Normas de calidad. Normas para asegurar la transmisión del conocimiento. Responsabilidad y Ética Profesional
