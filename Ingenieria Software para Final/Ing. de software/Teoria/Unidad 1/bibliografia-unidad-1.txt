@@ -1,0 +1,6 @@
+Leer los Capítulos 1 al 3 del libro “Ingeniería de Software” de Ian Sommerville 
+que se encuentra en la Biblioteca de la UNSa.
+
+Leer de Guía del PMBOK®– Cuarta Edición, La Sección 1, El Marco de referencia 
+para la Dirección de Proyectos, proporciona una base para entender la 
+dirección de proyectos. Esta sección consta de dos capítulos.

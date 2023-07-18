@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+
+<html> 
+<head> 
+<title>Primera</title> 
+<style type="text/css"> 
+<!-- 
+#pizarra {position : relative; width : 300; background-color : #faebd7} 
+--> 
+</style> 
+<script language="JavaScript" type="text/javascript"> 
+<!-- 
+function mues(){ 
+    experiencia=evalua(0,'exp'); 
+    icase= evalua(0,'cas'); 
+    productividad=(icase+experiencia)/2; 
+    nop=document.getElementById('op').value; 
+    reutilizacion=document.getElementById('reu').value; 
+    esfuerzo= (nop * (1- reutilizacion/100))/productividad;
+		valor=calcularCalendario(esfuerzo,1); 
+    esc=document.getElementById('pizarra'); 
+    esc.innerHTML="Esfuerzo: <em>"+esfuerzo+" pers/mes</em><br> Tpo calendario: <em>"+valor+" meses</em>"; 
+    } 
+
+// la funcion evalua devuelve el número de radio seleccionado, indicando formulario y nombre de grupo 
+function evalua(formu,radios){ 
+var elec=0; 
+var tira='document.forms['+formu+'].'+radios; 
+var r=eval(tira); 
+document.getElementById('pizarra').innerHTML=tira; 
+    for (i=0; i<r.length; i++){ 
+         if ( r[i].checked==true){ 
+              valor=r[i].value; 
+              switch (valor){ 
+                   case "Muy Bajo":{ 
+                        elec=4; 
+                        break; 
+                        } 
+                   case "Bajo": { 
+                        elec=7; 
+                        break; 
+                        } 
+                   case "Nominal":{ 
+                        elec=13; 
+                        break; 
+                        } 
+                   case "Alto":{ 
+                        elec=25; 
+                        break; 
+                        } 
+                   case "Muy Alto":{ 
+                        elec=50; 
+                        break; 
+                        } 
+                   } 
+//               elec=i; 
+              } 
+         } 
+    return elec; 
+} 
+function calcularCalendario (esfuerzo, b)
+{
+var tdev=0;
+
+tdev= 3*( Math.pow(esfuerzo, (0.33+0.2*(b-1.01))));
+return tdev;
+}
+//--> 
+</script> 
+
+</head> 
+<body> 
+<form name="ej"> 
+
+<h2>Productividad</h2> 
+<p>La productividad del programador depende de la experiencia y capacidad del 
+desarrollador y de las características de las herramientas CASE  utilizadas para poyar el desarrollo 
+<h3>Experiencia de los desarrolladores</h3> 
+<ul> 
+<li><input type="radio" name="exp" id="exp" value="Muy Bajo"/> Muy Bajo </li> 
+<li><input type="radio" name="exp" id="exp" value="Bajo" /> Bajo </li> 
+<li><input type="radio" name="exp" id="exp" value="Nominal" checked /> Nominal</li> 
+<li><input type="radio" name="exp" id="exp" value="Alto"/>Alto</li> 
+<li><input type="radio" name="exp" id="exp" value="Muy Alto"/>Muy Alto</li> 
+</ul> 
+<h3>Madurez y capacidad ICASE</h3> 
+<ul> 
+<li><input type="radio" name="cas" id="cas" value="Muy Bajo"/> Muy Bajo </li> 
+<li><input type="radio" name="cas" id="cas" value="Bajo"/>Bajo</li> 
+<li><input type="radio" name="cas" id="cas" value="Nominal" checked/>Nominal</li> 
+<li><input type="radio" name="cas" id="cas" value="Alto"/>Alto</li> 
+<li><input type="radio" name="cas" id="cas" value="Muy Alto"/>Muy Alto</li> 
+</ul> 
+<h1>Otros valores</h1> 
+<h2>Nro Puntos objeto: </h2> 
+    <p>Introduzca la cantidad estimada de puntos objetos: <input type="text" name="op" id="op" size="4"  /> 
+<h2>Reutilización:</h2> 
+    <p>Introduzca el porcentaje de código a reutilizar (expresado en 100%)<input type="text" name="reu" id="reu" size="4"  /> 
+<p>Para obtener el resultado presione el botón 
+<input type="button" value="aqui" onclick="javascript:mues();" /> 
+</form> 
+<div id="pizarra"> 
+<p>Aquí irá el resultado</p> 
+</div> 
+<a href="tool_home.htm">Atras</a>
+</body> 
+</html>

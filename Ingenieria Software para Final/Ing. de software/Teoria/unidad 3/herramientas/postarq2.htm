@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
+  
+<html>  
+<head>  
+<title>Primera</title>  
+<style type="text/css">  
+<!--  
+#pizarra {position : relative; width : 300; background-color : #faebd7}  
+li {font-size: 7pt; font-family :Verdana, sans-serif} 
+td {vertical-align : top} 
+a:hover {color : #cccc66} 
+-->  
+</style>  
+<script language="JavaScript" type="text/javascript">  
+<!--  
+function postarq(){
+	document.cookie="MOD=PostArquitectonico;";
+	}
+function mues(){  
+	rely= evalua(0,'rel');  
+	data=evalua(0,'dat'); 
+	cplx=evalua(0,'cpl'); 
+	ruse=evalua(0,'rus'); 
+	docu=evalua(0,'doc'); 
+	time=evalua(1,'tim'); 
+	stor=evalua(1,'sto'); 
+	pvol=evalua(1,'vol'); 
+	acap=evalua(1,'acp'); 
+	pcap=evalua(1,'pcp'); 
+	pexp=evalua(1,'pex'); 
+	pcon=evalua(1,'pco'); 
+	aexp=evalua(1,'aex'); 
+	pexp=evalua(1,'pex'); 
+	ltex=evalua(1,'ltx'); 
+	tool=evalua(0,'too'); 
+	site=evalua(0,'sit'); 
+	sced=evalua(0,'sce'); 
+	 
+	valor=rely*data*cplx*ruse*docu*time*stor*pvol*acap*pcap*pexp*pcon*aexp*pexp*ltex*tool*site*sced; 
+	esc=document.getElementById('pizarra');  
+	esc.innerHTML="Valor del multiplicador de esfuerzo: <em>"+valor+"</em>";  
+	document.cookie='ME='+valor+';'; 
+	document.cookie='SC='+sced+';';
+	}  
+ 
+ 
+function evalua(formu,radios){  
+var elec=0;  
+var tira='document.forms['+formu+'].'+radios;  
+var r=eval(tira);  
+//document.getElementById('pizarra').innerHTML=tira;  
+	for (i=0; i<r.length; i++){  
+		if ( r[i].checked==true){  
+			valor=r[i].value; 
+			elec=parseFloat(valor); 
+			 
+				} 
+			}  
+ 
+	return elec;  
+}  
+//-->  
+</script>  
+  
+</head>  
+<body onload="postarq();">  
+<h1>Multiplicadores de esfuerzo</h1> 
+<p>Se utilizan para ajustar la cantidad de personas-mes obtenidas  
+<table> 
+<tr> 
+<td> 
+<h2>Factores dependientes del Producto</h2> 
+<form name="ej">  
+<h3>RELY</h3>  
+<p>Indique el nivel de confiabilidad requerida. Se refiere a los efectos producidos por una falla en el software</p>  
+<ul>  
+<li><input type="radio" name="rel" id="rel" value="0.75"/> Inconvenientes Menores </li>  
+<li><input type="radio" name="rel" id="rel" value="0.88"  /> Bajo. Pérdidas recuperables </li>  
+<li><input type="radio" name="rel" id="rel" value="1" checked />Nominal:  Moderado. Pérdidas fácilmente recuperables</li>  
+<li><input type="radio" name="rel" id="rel" value="1.15"/>Pérdidas Financieras altas</li>  
+<li><input type="radio" name="rel" id="rel" value="1.39" />Riesgo para la vida Humana</li> 
+</ul>  
+<h3>1.- DATA</h3> 
+<p>Especifique el nivel del tamaño de los datos según el cociente D/P (D: tamaño de los datos en Bytes, P: tamaño del programa en líneas de código fuente) 
+<ul> 
+<li><input type="radio" name="dat" id="dat" value="0.93"/>D/P&lt; 10</li> 
+<li><input type="radio" name="dat" id="dat" value="1" checked />Nominal: 10&lt;=D/P&lt;100</li> 
+<li><input type="radio" name="dat" id="dat" value="1.09"/>100&lt;=D/P&lt;1000</li> 
+<li><input type="radio" name="dat" id="dat" value="1.19" />D/P&gt;1000</li> 
+</ul> 
+<h3>2.- CPLX</h3> 
+<p>Indique el nivel de complejidad</p> 
+<ul> 
+<li><input type="radio" name="cpl" id="cpl" value="0.75"/>Muy Bajo</li> 
+<li><input type="radio" name="cpl" id="cpl" value="0.88"/>Bajo</li> 
+<li><input type="radio" name="cpl" id="cpl" value="1" checked />Nominal</li> 
+<li><input type="radio" name="cpl" id="cpl" value="1.15"/>Alto</li> 
+<li><input type="radio" name="cpl" id="cpl" value="1.3"/>Muy Alto</li> 
+<li><input type="radio" name="cpl" id="cpl" value="1.66"/>Extra Alto</li> 
+</ul> 
+<h3>3.- RUSE</h3> 
+<p>Especifique el grado de reusabilidad que requerirá el producto</p> 
+<ul> 
+<li><input type="radio" name="rus" id="rus" value="0.91"/>Ninguna Reusabilidad</li> 
+<li><input type="radio" name="rus" id="rus" value="1" checked />Nominal: A través del proyecto</li> 
+<li><input type="radio" name="rus" id="rus" value="1.14"/>A través del programa</li> 
+<li><input type="radio" name="rus" id="rus" value="1.29"/>A través de la línea de productos</li> 
+<li><input type="radio" name="rus" id="rus" value="1.49"/>A través de múltiples líneas de productos</li> 
+</ul> 
+<h3>4.- DOCU</h3> 
+<p>Pondera el grado de necesidad de la documentación en relación con las necesidades del ciclo de vida (CV)</p> 
+<ul> 
+<li><input type="radio" name="doc" id="doc" value="0.89" />Apenas necesaria</li> 
+<li><input type="radio" name="doc" id="doc" value="0.95" />Algo necesaria</li> 
+<li><input type="radio" name="doc" id="doc" value="1" checked />Nominal: tamaño de la documentación ajustada al CV</li> 
+<li><input type="radio" name="doc" id="doc" value="1.06" />Excesivo a las necesidades del CV</li> 
+<li><input type="radio" name="doc" id="doc" value="1.13" />Muy Excesivo respecto a las necesidades del CV</li> 
+</ul> 
+<h2>Factores del Proyecto</h2> 
+<h3>5.- TOOL</h3> 
+<p><em>Uso de herramientas de software</em>: refleja el nivel de las herramientas de software utilizadas</p> 
+<ul> 
+<li><input type="radio" name="too" id="too" value="1.24" />Edición, código, depuración</li> 
+<li><input type="radio" name="too" id="too" value="1.12" />Simple, frontend, backend, CASE, escasa integración</li> 
+<li><input type="radio" name="too" id="too" value="1" checked />Nominal:Herramientas de ciclo de vida básico, moderada integtración</li> 
+<li><input type="radio" name="too" id="too" value="0.86" />Madurez en la utilización de herramientas de ciclo de vida. Integración moderada</li> 
+<li><input type="radio" name="too" id="too" value="0.72" />Madurez en la utilización de herramientas de ciclo de vida, buena integración con procesos, métodos y reutilización</li> 
+</ul> 
+ 
+<h3>6.- SITE</h3> 
+<p><em>Desarrollo Multisitio</em>: considera dos factores: la distribución geográfica y el soporte de comunicaciones para el desarrollo</p> 
+<ul> 
+<li><input type="radio" name="sit" id="sit" value="1.25" />Internacional</li> 
+<li><input type="radio" name="sit" id="sit" value="1.1" />Varias Ciudades y varias compañías</li> 
+<li><input type="radio" name="sit" id="sit" value="1" checked />Nominal:Varias ciudades o varias compañías</li> 
+<li><input type="radio" name="sit" id="sit" value="0.92" />Misma ciudad o misma zona</li> 
+<li><input type="radio" name="sit" id="sit" value="0.84" />Mismo edificio o complejo</li> 
+<li><input type="radio" name="sit" id="sit" value="0.78" />Completamente junto</li> 
+</ul> 
+<h3>7.- SCED</h3> 
+<p>Representa la planificación temporal en términos del porcentaje del tiempo promedio requerido. </p> 
+<ul> 
+<li><input type="radio" name="sce" id="sce" value="1.29" />75% del tiempo promedio (planif. acelerada)</li> 
+<li><input type="radio" name="sce" id="sce" value="1.1" /> 85% </li> 
+<li><input type="radio" name="sce" id="sce" value="1" checked />Nominal: 100%</li> 
+<li><input type="radio" name="sce" id="sce" value="1" /> 130% </li> 
+<li><input type="radio" name="sce" id="sce" value="1" /> 160% </li> 
+</ul> 
+ 
+</form>  
+</td> 
+<td> 
+<h2><a name="pla">Factores dependientes de la Plataforma</a></h2> 
+<form name="plataforma"> 
+<h3>8.- TIME</h3> 
+<p>Representa las restricciones de tiempo. Representa el <em>porcentaje del tiempo de ejecución que se espera que sea consumido por el sistema en relación con el total del tiempo de ejecución</p> 
+<ul> 
+<li><input type="radio" name="tim" id="tim" value="1" checked />Nominal: 50%</li> 
+<li><input type="radio" name="tim" id="tim" value="1.11" />70%</li> 
+<li><input type="radio" name="tim" id="tim" value="1.31" />85%</li> 
+<li><input type="radio" name="tim" id="tim" value="1.67" title="Extra Alto" />95%</li> 
+</ul> 
+<h3>9.- STOR</h3> 
+<p>Se refiere a las exigencias del almacenamiento, como porcentaje de la capacidad de almacenamiento principal disponible</p> 
+<ul> 
+<li><input type="radio" name="sto" id="sto" value="1" checked />Nominal: &lt;=50% del total disponible</li> 
+<li><input type="radio" name="sto" id="sto" value="1.06" />70%</li> 
+<li><input type="radio" name="sto" id="sto" value="1.21" />85%</li> 
+<li><input type="radio" name="sto" id="sto" value="1.57" />95%</li> 
+</ul> 
+<h3>10.- PVOL</h3> 
+<p><em>Volatilidad de la Plataforma</em>: se refiere al tiempo en que se producen cambios en la plataforma en la que correrá el software (entendida como el complejo de hardware y software sobre el que funcionará)</p> 
+<ul> 
+<li><input type="radio" name="vol" id="vol" value="0.87" />Cambios mayores cada 12 meses. Cambios menores mensuales</li> 
+<li><input type="radio" name="vol" id="vol" value="1" checked />Nominal: cambios mayores cada 6 meses, menores cada 2 semanas</li> 
+<li><input type="radio" name="vol" id="vol" value="1.15" />Cambios mayores cada 2 meses, cambios menores semanales</li> 
+<li><input type="radio" name="vol" id="vol" value="1.3" />Cambios mayores cada 2 semanas, menores cada 2 días</li> 
+</ul> 
+<h2>Factores del Personal</h2> 
+<h3>11.- ACAP</h3> 
+<p>Representa la capacitación de los analistas. Es una medida que representa la capacidad, la habilidad, la capacidad de comunicación y cooperación. La experiencia se considera más adelante</p> 
+<ul> 
+<li><input type="radio" name="acp" id="acp" value="1.50" /> 15%</li> 
+<li><input type="radio" name="acp" id="acp" value="1.22" /> 35%</li> 
+<li><input type="radio" name="acp" id="acp" value="1" checked /> 55%</li> 
+<li><input type="radio" name="acp" id="acp" value="0.83" /> 75%</li> 
+<li><input type="radio" name="acp" id="acp" value="0.67" /> 90%</li> 
+</ul> 
+<h3>12.- PCAP</h3> 
+<p>Representa la capacidad de los programadores, en términos similares al caso anterior</p> 
+<ul> 
+<li><input type="radio" name="pcp" id="pcp" value="1.37" /> 15%</li> 
+<li><input type="radio" name="pcp" id="pcp" value="1.16" /> 35%</li> 
+<li><input type="radio" name="pcp" id="pcp" value="1" checked />Nominal: 55%</li> 
+<li><input type="radio" name="pcp" id="pcp" value="0.87" /> 75%</li> 
+<li><input type="radio" name="pcp" id="pcp" value="0.64" /> 90%</li> 
+</ul> 
+<h3>13.- PEXP</h3> 
+<p>Representa la experiencia del personal en la plataforma </p> 
+<li><input type="radio" name="pex" id="pex" value="1.25" />&lt;= 2 meses</li> 
+<li><input type="radio" name="pex" id="pex" value="1.12" />6 meses</li> 
+<li><input type="radio" name="pex" id="pex" value="1" checked />Nominal: 1 año</li> 
+<li><input type="radio" name="pex" id="pex" value="0.88" />3 años</li> 
+<li><input type="radio" name="pex" id="pex" value="0.81" />6 años</li> 
+</ul> 
+<h3>14.- LTEX</h3> 
+<p>Es una medida de la experiencia del equipo de desarrollo en las herramientas y el lenguaje</p> 
+<ul> 
+<li><input type="radio" name="ltx" id="ltx" value="1.22" /> &lt;= 2 meses</li> 
+<li><input type="radio" name="ltx" id="ltx" value="1.10" /> 6 meses</li> 
+<li><input type="radio" name="ltx" id="ltx" value="1" checked /> Nominal: 1 año</li> 
+<li><input type="radio" name="ltx" id="ltx" value="0.91" /> 3 años</li> 
+<li><input type="radio" name="ltx" id="ltx" value="0.84" />6 años</li> 
+</ul> 
+<h3>15.- AEXP</h3> 
+<p><em>Experiencia en la aplicación</em>:se refiere al tiempo de experiencia del equipo de desarrollo en el tipo de aplicación</p> 
+<ul> 
+<li><input type="radio" name="aex" id="aex" value="1.22" /> &lt;= 2 meses </li> 
+<li><input type="radio" name="aex" id="aex" value="1.10" /> 6 meses</li> 
+<li><input type="radio" name="aex" id="aex" value="1" checked /> Nominal: 1 año</li> 
+<li><input type="radio" name="aex" id="aex" value="0.89" /> 3 años</li> 
+<li><input type="radio" name="aex" id="aex" value="0.81" />6 años</li> 
+</ul> 
+<h3>16.- PEXP</h3> 
+<p><em>Experiencia en la Plataforma</em>: tiempo de experiencia en la plataforma del equipo de desarrollo </p> 
+<ul> 
+<li><input type="radio" name="pex" id="pex" value="1.25" /> &lt; =2 meses</li> 
+<li><input type="radio" name="pex" id="pex" value="1.12" /> 6 meses</li> 
+<li><input type="radio" name="pex" id="pex" value="1" checked /> Nominal: 1 año</li> 
+<li><input type="radio" name="pex" id="pex" value="0.88" /> 3 años</li> 
+<li><input type="radio" name="pex" id="pex" value="0.81" />6 años</li> 
+</ul> 
+ 
+<h3>17.- PCON</h3> 
+<p><em>Continuidad del Personal</em>: mide la tasa de rotación del personal en términos de porcentaje anual</p> 
+<li><input type="radio" name="pco" id="pco" value="1.24" /> 48% anual </li> 
+<li><input type="radio" name="pco" id="pco" value="1.1" /> 24% anual </li> 
+<li><input type="radio" name="pco" id="pco" value="1" checked />Nominal: 12% anual </li> 
+<li><input type="radio" name="pco" id="pco" value="0.92" /> 6% anual </li> 
+<li><input type="radio" name="pco" id="pco" value="0.84" /> 3% anual </li> 
+</ul> 
+<h3>Cálculo del producto</h3> 
+<input type="button" value="aqui" onclick="javascript:mues();" />  
+</form> 
+</td> 
+</tr> 
+</table> 
+<div id="pizarra">  
+<p>Valor del multiplicador de esfuerzo: ....</p>  
+</div>  
+ <p><a href="calculo_de_b.htm">Calcular el Exponente de Escala</a></p> 
+</body>  
+</html>  

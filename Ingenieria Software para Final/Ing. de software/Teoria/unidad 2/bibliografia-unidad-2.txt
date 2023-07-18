@@ -1,0 +1,3 @@
+Leer el capitulo 2 del libro Ingeniería de Software de Pressman que se encuentra en biblioteca.
+
+Lectura complementaria: Medición para la gestión en la Ingeniería de Software de Dorado Cosín, el cual se encuentra en mi poder.

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+
+<html> 
+<head> 
+<title>Primera</title> 
+<style type="text/css"> 
+<!-- 
+#pizarra {position : relative; width : 300; background-color : #faebd7} 
+--> 
+</style> 
+<script language="JavaScript" type="text/javascript"> 
+<!-- 
+function mues(){ 
+		 
+    var expMM=0;
+    var paramMM=0;
+    var expTDEV=0;
+     
+    var tira='document.forms[0].mod'; 
+    var r=eval(tira); 
+		
+    document.getElementById('pizarra').innerHTML=tira; 
+        for (i=0; i<r.length; i++){ 
+             if ( r[i].checked==true){ 
+              valor=r[i].value; 
+              switch (valor){ 
+                   case "Organico":{ 
+                        expMM=1.05;
+												paramMM=2.4;
+												expTDEV=0.38; 
+                        break; 
+                        } 
+                   case "Semirigido": { 
+									      expMM=1.12;
+												paramMM=3.0;
+												expTDEV=0.35;  
+                        break; 
+                        } 
+                   case "Rigido":{ 
+                        expMM=1.20;
+												paramMM=3.6;
+												expTDEV=0.32;  
+                        break; 
+                        } 
+                 } 
+              } 
+         } 
+    nldc=document.getElementById('ldc').value; //nro de miles de lineas de cgo
+    esfuerzo= paramMM*( Math.pow(nldc, expMM));
+		calendario= 2.5*(Math.pow(esfuerzo,expTDEV)); 
+    personas=esfuerzo/calendario
+		esc=document.getElementById('pizarra'); 
+    esc.innerHTML="KLCOD: <em>" + nldc + " </em><br> Esfuerzo: <em>"+esfuerzo+ " pers/mes</em><br> Tpo calendario: <em>"+calendario+" meses</em><br> Personas (prom): <em>"+personas+" pers</em>"; 
+    } 
+
+//--> 
+</script> 
+
+</head> 
+<body> 
+<form name="ej"> 
+
+
+<h1>Herramienta para COCOMO 81</h1> 
+<p>La productividad del programador depende de la experiencia y capacidad del 
+desarrollador y de las características de las herramientas CASE  utilizadas para apoyar el desarrollo 
+<h2>COCOMO BASICO</h2> 
+<h3>Tipo de Proyecto</h3> 
+<ul> 
+<li><input type="radio" name="mod" id="mod" value="Organico" checked/> Orgánico </li> 
+<li><input type="radio" name="mod" id="mod" value="Semirigido" /> Semirígido </li> 
+<li><input type="radio" name="mod" id="mod" value="Rigido"/> Rígido </li> 
+</ul> 
+
+<h2>Nro de Miles de Lineas de Codigo: </h2> 
+    <p>Introduzca la cantidad estimada de miles de líneas de Código: <input type="text" name="ldc" id="ldc" size="4"  /> 
+<p>Para obtener el resultado presione el botón 
+<input type="button" value="aqui" onclick="javascript:mues();" /> 
+</form> 
+<div id="pizarra"> 
+<p>Aquí irá el resultado</p> 
+</div> 
+<a href="tool_home.htm">Atrás</a>
+</body> 
+</html>

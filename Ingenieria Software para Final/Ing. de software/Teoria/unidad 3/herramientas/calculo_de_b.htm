@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
+ 
+<html>  
+<head>  
+<title>Primera</title>  
+<style type="text/css">  
+<!--  
+#pizarra {position : relative; width : 300; background-color : #faebd7}  
+-->  
+</style>  
+<script language="JavaScript" type="text/javascript">  
+<!--  
+function mues(){  
+    exp1=evalua(0,'exp1');  
+    exp2=evalua(0,'exp2');  
+		exp3=evalua(0,'exp3'); 
+		exp4=evalua(1,'exp4'); 
+		exp5=evalua(1,'exp5'); 
+    valorB=1.01 + 0.01 *(exp1 + exp2 + exp3 + exp4 + exp5); 
+    laCook=document.cookie;
+    document.cookie="B="+valorB+";"; 
+    esc=document.getElementById('pizarra');  
+    esc.innerHTML="El valor de B es: <em>"+valorB+"</em>";  
+    }  
+ 
+// la funcion evalua devuelve el número de radio seleccionado, indicando formulario y nombre de grupo  
+function evalua(formu,radios){  
+var elec=0;  
+var tira='document.forms['+formu+'].'+radios;  
+var r=eval(tira);  
+document.getElementById('pizarra').innerHTML=tira;  
+    for (i=0; i<r.length; i++){  
+         if ( r[i].checked==true){  
+              valor=r[i].value; 
+							elec=parseFloat(valor);			 
+              }  
+         }  
+    return elec;  
+}  
+ 
+ 
+//-->  
+</script>  
+ 
+</head>  
+<body>  
+<form name="ej">  
+<h1>Calculo del exponente de escala</h1> 
+<h2>Factores de Escala </h2>  
+<table> 
+<tr> 
+<td width="50%" valign="top"> 
+<h3>Precedentes</h3>  
+<p> 
+<ul>  
+<li><input type="radio" name="exp1" id="exp1" value=5/> Muy Bajo: muy sin precedentes </li>  
+<li><input type="radio" name="exp1" id="exp1" value=4/> Bajo: altamente sin precedentes</li>  
+<li><input type="radio" name="exp1" id="exp1" value=3 checked /> Nominal: algo sin precedentes </li>  
+<li><input type="radio" name="exp1" id="exp1" value=2 />Alto: generalmente familiar</li>  
+<li><input type="radio" name="exp1" id="exp1" value=1/>Muy Alto: bastante familiar</li>  
+<li><input type="radio" name="exp1" id="exp1" value=0/>Extra Alto: muy familiar</li>  
+</ul>  
+<h3>Flexibilidad de desarrollo</h3>  
+<p> 
+<ul>  
+<li><input type="radio" name="exp2" id="exp2" value=5/> Muy Bajo: rígido </li>  
+<li><input type="radio" name="exp2" id="exp2" value=4 /> Bajo: relajación ocacional </li>  
+<li><input type="radio" name="exp2" id="exp2" value=3 checked /> Nominal: alguna relajación</li>  
+<li><input type="radio" name="exp2" id="exp2" value=2 />Alto: conformidad general </li>  
+<li><input type="radio" name="exp2" id="exp2" value=1/>Muy Alto: alguna conformidad</li>  
+<li><input type="radio" name="exp2" id="exp2" value=0/>Extra Alto: objetivos generales</li>  
+</ul>  
+<h3>Arquitectora /Resolución de riesgos</h3>  
+<p>Porcentaje de interfaces de modulo especificadas y porcentaje de riesgos significativos eliminados. 
+<ul>  
+<li><input type="radio" name="exp3" id="exp3" value=5/> Muy Bajo: poco(20%)</li>  
+<li><input type="radio" name="exp3" id="exp3" value=4/> Bajo: algo(40%) </li>  
+<li><input type="radio" name="exp3" id="exp3" value=3 checked /> Nominal: frecuente(60%)</li>  
+<li><input type="radio" name="exp3" id="exp3" value=2/>Alto: generalmente (75%)</li>  
+<li><input type="radio" name="exp3" id="exp3" value=1/>Muy Alto: casi completo(90%)</li>  
+<li><input type="radio" name="exp3" id="exp3" value=0/>Extra Alto: completo (100%)</li>  
+</ul>  
+</form> 
+</td> 
+<td valign="top"> 
+<form name="ej">  
+<h3>Cohesión del equipo</h3>  
+<p> 
+<ul>  
+<li><input type="radio" name="exp4" id="exp4" value=5/> Muy Bajo:interacciones muy difíciles </li>  
+<li><input type="radio" name="exp4" id="exp4" value=4/> Bajo: algunas interacciones difíciles</li>  
+<li><input type="radio" name="exp4" id="exp4" value=3 checked /> Nominal: interacciones básicamente cooperativas</li>  
+<li><input type="radio" name="exp4" id="exp4" value=2/>Alto: interacciones ampliamente cooperativas</li>  
+<li><input type="radio" name="exp4" id="exp4" value=1/>Muy Alto: interacciones altamente cooperativas</li>  
+<li><input type="radio" name="exp4" id="exp4" value=0/>Extra Alto:interacciones seamless</li>  
+</ul>  
+<h3>Nivel de madurez</h3>  
+<p>La forma de determinar la escala del proceso de madurez está siendo resuelto en coordinacion con el SEI 
+para no utilizar los niveles de 1-5 de CMM. Los pesos a aplicar a las distintas áreas de proceso están aun siendo determinadas. 
+Actualmente se basa en la cantidad de "SI" que se obtienen al contestar el cuestionario de CMM 
+<ul>  
+<li><input type="radio" name="exp5" id="exp5" value=5/> Muy Bajo </li>  
+<li><input type="radio" name="exp5" id="exp5" value=4/> Bajo </li>  
+<li><input type="radio" name="exp5" id="exp5" value=3 checked /> Nominal </li>  
+<li><input type="radio" name="exp5" id="exp5" value=2/>Alto </li>  
+<li><input type="radio" name="exp5" id="exp5" value=1/>Muy Alto </li>  
+<li><input type="radio" name="exp5" id="exp5" value=0/>Extra Alto </li>  
+</ul>  
+</form>  
+</td> 
+</tr> 
+<tr> 
+<td colspan=2 height="2" bgcolor="#000000"> 
+</td> 
+</tr> 
+<tr> 
+<td colspan=2> 
+<form name="calculo"> 
+<p>Para obtener el cálculo del exponente de escala B presione el botón  
+<input type="button" value="aqui" onclick="javascript:mues();" />  
+</form>  
+<div id="pizarra">  
+<p>Aquí irá el resultado</p>  
+</div>  
+</td> 
+</tr> 
+</table> 
+<p><a href="tool_calculofinal.htm">Cálculo Final</a></p>
+</body>  
+</html>

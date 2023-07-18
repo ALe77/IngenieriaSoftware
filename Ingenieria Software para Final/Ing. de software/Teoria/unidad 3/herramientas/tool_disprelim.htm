@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
+  
+<html>  
+<head>  
+<title>Primera</title>  
+<style type="text/css">  
+<!--  
+#pizarra {position : relative; width : 300; background-color : #faebd7}  
+li {font-size: 7pt; font-family :Verdana, sans-serif} 
+td {vertical-align : top} 
+a:hover {color : #cccc66} 
+-->  
+</style>  
+<script language="JavaScript" type="text/javascript">  
+<!--  
+function disprel(){
+	document.cookie="MOD=Preliminar;";
+	}
+	
+function mues(){  
+	rcpx=evalua(0,'rcp');  
+	ruse=evalua(0,'rus'); 
+	pdif=evalua(1,'pdi'); 
+	pers=evalua(1,'per'); 
+	prex=evalua(1,'pre'); 
+	fcil=evalua(0,'fci'); 
+	sced=evalua(0,'sce'); 
+	 
+	valor=rcpx*ruse*pdif*pers*prex*fcil*sced; 
+	esc=document.getElementById('pizarra');  
+	esc.innerHTML="Valor del multiplicador de esfuerzo: <em>"+valor+"</em>";  
+	document.cookie='ME='+valor+';'; 
+	document.cookie='SC='+sced+';';
+	}  
+ 
+ 
+function evalua(formu,radios){  
+var elec=0;  
+var tira='document.forms['+formu+'].'+radios;  
+var r=eval(tira);  
+//document.getElementById('pizarra').innerHTML=tira;  
+	for (i=0; i<r.length; i++){  
+		if ( r[i].checked==true){  
+			valor=r[i].value; 
+			elec=parseFloat(valor); 
+				} 
+			}  
+ 
+	return elec;  
+}  
+//-->  
+</script>  
+  
+</head>  
+<body onload="disprel();">  
+<h1>Diseño Preliminar</h1>
+<h2>Multiplicadores de esfuerzo</h2> 
+<p>Se utilizan para ajustar la cantidad de personas-mes obtenidas  
+<table> 
+<tr> 
+<td> 
+<h2>Factores dependientes del Producto</h2> 
+<form name="ej">  
+<h3>RCPX </h3> 
+<p>Indique el nivel de complejidad</p> 
+<ul> 
+<li><input type="radio" name="rcp" id="rcp" value="0.75"/>Muy Bajo</li> 
+<li><input type="radio" name="rcp" id="rcp" value="0.88"/>Bajo</li> 
+<li><input type="radio" name="rcp" id="rcp" value="1" checked />Nominal</li> 
+<li><input type="radio" name="rcp" id="rcp" value="1.15"/>Alto</li> 
+<li><input type="radio" name="rcp" id="rcp" value="1.3"/>Muy Alto</li> 
+</ul> 
+<h3>RUSE</h3> 
+<p>Especifique el grado de reusabilidad que requerirá el producto</p> 
+<ul> 
+<li><input type="radio" name="rus" id="rus" value="1.00" checked />Nominal</li> 
+<li><input type="radio" name="rus" id="rus" value="1.05"/>Alto</li> 
+<li><input type="radio" name="rus" id="rus" value="1.10"/>Muy Alto</li> 
+</ul> 
+<h2>Factores del Proyecto</h2> 
+<h3>FCIL</h3> 
+<p>Indique el nivel de complejidad</p> 
+<ul> 
+<li><input type="radio" name="fci" id="fci" value="1.35" />Muy bajo</li> 
+<li><input type="radio" name="fci" id="fci" value="1.19" />Bajo</li> 
+<li><input type="radio" name="fci" id="fci" value="1.00" checked />Nominal</li> 
+<li><input type="radio" name="fci" id="fci" value="0.85" />Alto</li> 
+<li><input type="radio" name="fci" id="fci" value="0.68" />Muy Alto</li> 
+</ul> 
+<h3>SCED</h3> 
+<p>Representa la planificación temporal en términos del porcentaje del tiempo promedio requerido. </p> 
+<ul> 
+<li><input type="radio" name="sce" id="sce" value="1.35" />Muy Bajo</li> 
+<li><input type="radio" name="sce" id="sce" value="1.19" />Bajo </li> 
+<li><input type="radio" name="sce" id="sce" value="1.00" checked />Nominal</li> 
+<li><input type="radio" name="sce" id="sce" value="1.05" />Alto</li> 
+<li><input type="radio" name="sce" id="sce" value="1.10" /> Muy Alto</li> 
+</ul> 
+</form>  
+</td> 
+<td> 
+<h2><a name="pla">Factores dependientes de la Plataforma</a></h2> 
+<form name="plataforma"> 
+<h3>PDIF</h3> 
+<p>Indique el nivel de complejidad</p> 
+<ul> 
+<li><input type="radio" name="pdi" id="pdi" value="0.75" />Muy Bajo</li> 
+<li><input type="radio" name="pdi" id="pdi" value="0.87" />Bajo </li> 
+<li><input type="radio" name="pdi" id="pdi" value="1.00" checked />Medio</li> 
+<li><input type="radio" name="pdi" id="pdi" value="1.21" />Alto</li> 
+<li><input type="radio" name="pdi" id="pdi" value="1.41" />Muy ALto</li> 
+</ul> 
+<h2>Factores del Personal</h2> 
+<h3>PERS</h3> 
+<p>Indique el nivel de complejidad</p> 
+<ul> 
+<li><input type="radio" name="per" id="per" value="1.55" /> Muy Bajo </li> 
+<li><input type="radio" name="per" id="per" value="1.35" /> Bajo</li> 
+<li><input type="radio" name="per" id="per" value="1.00" checked /> Medio</li> 
+<li><input type="radio" name="per" id="per" value="0.75" /> Alto</li> 
+<li><input type="radio" name="per" id="per" value="0.58" /> Muy Alto</li> 
+</ul> 
+<h3>PREX</h3> 
+<p>Indique el nivel de complejidad</p> 
+<ul> 
+<li><input type="radio" name="pre" id="pre" value="1.35" /> Muy Bajo </li> 
+<li><input type="radio" name="pre" id="pre" value="1.19" /> Bajo</li> 
+<li><input type="radio" name="pre" id="pre" value="1.00" checked /> Medio</li> 
+<li><input type="radio" name="pre" id="pre" value="0.87" /> Alto</li> 
+<li><input type="radio" name="pre" id="pre" value="0.71" />Muy Alto</li> 
+</ul> 
+ 
+<h3>Cálculo del producto</h3> 
+<input type="button" value="aqui" onclick="javascript:mues();" />  
+</form> 
+</td> 
+</tr> 
+</table> 
+<div id="pizarra">  
+<p>Valor del multiplicador de esfuerzo: .....</p>  
+</div>  
+ <p><a href="calculo_de_b.htm"> Escala</a></p> 
+</body>  
+</html>  

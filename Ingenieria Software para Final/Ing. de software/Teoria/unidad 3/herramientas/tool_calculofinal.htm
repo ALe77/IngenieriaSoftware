@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">   
+  
+<html>   
+<head>   
+<title>Primera</title>   
+<style type="text/css">   
+<!--   
+#pizarra {position : relative; width : 300; background-color : #faebd7}  
+#resu {position: relative; width:400; background-color : #faebd7}  
+-->   
+</style>   
+<script language="JavaScript" type="text/javascript">   
+<!--   
+var b,m,sced; 
+function valor(nombre,tira){ 
+	p=tira.indexOf(nombre); 
+	igual=tira.indexOf("=",p+1); 
+	fin=tira.indexOf(";",igual+1);
+	if (fin==-1) fin=tira.length;
+	val1=tira.substring(igual+1,fin); 
+//	num=parseFloat(val1); 
+	return val1; 
+	} 
+	 
+function buscaCook(nombre){ 
+	Cook=document.cookie; 
+	niega="No hay: "+Cook; 
+	pos=Cook.indexOf(nombre); 
+	if (pos!=-1){ 
+		return valor(nombre,Cook); 
+		} 
+	else { 
+		return "falló "+nombre; 
+		} 
+	} 
+function resumen(){ 
+	tirilla="<p><strong>Modelo:"+buscaCook('MOD')+"</strong>. Multiplicadores:"+buscaCook('ME')+" factor de escala: "+buscaCook('B')+"</p>"; 
+	document.getElementById('resu').innerHTML=tirilla; 
+	b=parseFloat(buscaCook('B')); 
+	m=parseFloat(buscaCook('ME')); 
+	sce=parseFloat(buscaCook('SC')); 
+	} 
+function calcular(){   
+    kldc=parseFloat(document.getElementById('ldc').value);   
+		asloc=parseFloat(document.getElementById('asl').value);  
+		at=parseFloat(document.getElementById('at').value);   
+		atprod=parseFloat(document.getElementById('atp').value);  
+		esfuerzo= 2.5* eval(Math.pow(kldc,b)) * m + (asloc * at/100)/atprod;   
+		valor=calcularCalendario(esfuerzo, b, sce);   
+    esc=document.getElementById('pizarra');   
+    esc.innerHTML="<br>Esfuerzo: <em>"+esfuerzo+" pers/mes</em><br> Tpo calendario: <em>"+valor+" meses</em>";   
+    }   
+  
+function calcularCalendario (esfuerzo, b, sced)  
+{  
+var tdev=0;  
+
+tdev= 3*(Math.pow(esfuerzo, (0.33+0.2*(b-1.01))));  
+return tdev;  
+}  
+//-->   
+</script>   
+  
+</head>   
+<body onload="resumen();">   
+<form name="ej">   
+<h1>Resultados</h1>   
+<div id="resu"> 
+<p>Lista</p> 
+</div> 
+<p>Introducir los siguientes valores  
+<h2>TAMAÑO (KLDC)</h2>   
+    <p>Introduzca la cantidad estimada del tamaño (KLDC): <input type="text" name="ldc" id="ldc" size="4"  />   
+<h2>NRO DE LINEAS GENERADAS AUTOMATICAMENTE (ASLOC)</h2>   
+    <p>Introduzca la cantidad estimada del tamaño (ASLOC): <input type="text" name="asl" id="asl" size="4"  />   
+<h2>AUTOMATIZACION (AT)</h2>   
+    <p>Introduzca la cantidad estimada de automatización (AT): <input type="text" name="at" id="at" size="4"  />   
+<h2>PRODUCTIVIDAD EN AUTOMATIZACÓN (ATPROD)</h2>   
+    <p>Introduzca la productividad de automatizción estimada (ATPROD): <input type="text" name="atp" id="atp" size="4"  />   
+  
+<hr align="center" size="1" /> 
+<!--	 
+<h2>MULTIPLICDORES DE COSTOS (m)</h2>   
+    <p>M: <input type="text" name="m" id="m" size="4"  />   
+<h2>EXPONENTE DE ESCALA (b)</h2>   
+    <p>B: <input type="text" name="b" id="b" size="4"  /> 	  
+//--> 
+<p>Para obtener el resultado presione el botón   
+<input type="button" value="aqui" onclick="javascript:calcular();" />   
+</form>   
+<div id="pizarra">   
+<p>Aquí irá el resultado</p>   
+</div>   
+ <a href="tool_home.htm">Atras</a>
+</body>   
+</html>
